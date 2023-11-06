@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Bus Stops Assignment</title> 
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link th:href="@{/css/main.css}" rel="stylesheet" />
+</head>
+<body>
+    <table class="table">
+        <thead>
+            <tr>
+                <th> Line Number </th>
+                <th> Amount </th>
+                <th> Bus Stops</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="busStop : *{busStops}">
+            <td><span th:text="${busStop.BusLine}"> BusStop </span></td>
+            <td><span th:text="${busStop.Amount}"> Number </span></td>
+            <td><span th:each="stop: ${busStop.Stops}"> <span th:text="${stop} + ','"></span></td> 
+        </tr>
+    </tbody>
+    </table>
+</body>
+</html>
